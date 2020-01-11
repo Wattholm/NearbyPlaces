@@ -14,17 +14,32 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func zoomIn(_ sender: UIBarButtonItem) {
+        if let userLocation = mapView.userLocation.location?.coordinate {
+            
+            let region = MKCoordinateRegion(
+                center: userLocation, latitudinalMeters: 500, longitudinalMeters: 500)
+            
+            mapView.setRegion(region, animated: true)
+        }
     }
     
     @IBAction func changeMapType(_ sender: UIBarButtonItem) {
+        if mapView.mapType == MKMapType.standard {
+            mapView.mapType = MKMapType.satellite
+        } else {
+            mapView.mapType = MKMapType.standard
+        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mapView.delegate = self
+
+        mapView.showsUserLocation = true
     }
         
+    
     func getTransitETA() {
         let request = MKDirections.Request()
         let source = MKMapItem(placemark:
@@ -57,5 +72,8 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: MKMapViewDelegate {
-    
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        print("mapView(:didupdate:)")
+        mapView.centerCoordinate = userLocation.location!.coordinate
+    }
 }
