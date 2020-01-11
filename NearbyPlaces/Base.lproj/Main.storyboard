@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q8c-73-iIM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,25 +17,62 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lYE-Rq-3zA">
-                                <rect key="frame" x="20" y="144" width="374" height="698"/>
+                                <rect key="frame" x="20" y="188" width="374" height="610"/>
                             </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOf-9N-wPC">
+                                <rect key="frame" x="20" y="798" width="374" height="44"/>
+                                <items>
+                                    <barButtonItem title="Zoom" id="HmV-Ue-pVL">
+                                        <connections>
+                                            <action selector="zoomIn:" destination="BYZ-38-t0r" id="EUF-cL-8l8"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Type" id="hoj-7B-0gM">
+                                        <connections>
+                                            <action selector="changeMapType:" destination="BYZ-38-t0r" id="4uv-4Q-MUt"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="lYE-Rq-3zA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="IxG-mL-fsR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sOf-9N-wPC" secondAttribute="trailing" constant="20" id="Oj4-lA-iKJ"/>
+                            <constraint firstItem="sOf-9N-wPC" firstAttribute="top" secondItem="lYE-Rq-3zA" secondAttribute="bottom" id="RVh-IS-0o2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sOf-9N-wPC" secondAttribute="bottom" constant="20" id="UTq-E2-h5s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lYE-Rq-3zA" secondAttribute="trailing" constant="20" id="b0g-1b-M04"/>
                             <constraint firstItem="lYE-Rq-3zA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hIG-Vx-0HZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lYE-Rq-3zA" secondAttribute="bottom" constant="20" id="tmT-eJ-S4u"/>
+                            <constraint firstItem="sOf-9N-wPC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jJO-Sl-sch"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="N0a-ED-DjW"/>
                     <connections>
                         <outlet property="mapView" destination="lYE-Rq-3zA" id="e3i-Oc-Pya"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="134"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="133.92857142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YQM-f8-132">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q8c-73-iIM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SPi-Lg-IPg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="a57-H8-va5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CNu-6q-7gl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </scene>
     </scenes>
 </document>
