@@ -9,8 +9,8 @@
 import Foundation
 
 struct PlacesConstants {
-    static let searchRadius: Int = 5000
-    static let zoomRadius: Double = 5000
+    static let searchRadius: Int = 2000
+    static let zoomRadius: Double = 400
     static let maxResultSize: Int = 10
     static let defaultCategory: String? = nil
     

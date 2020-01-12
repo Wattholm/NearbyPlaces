@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 import MapKit
 import Moya
 import SwiftyJSON
@@ -58,16 +59,7 @@ class ViewController: UIViewController {
     
     @IBAction func searchNearbyPlaces(_ sender: UIBarButtonItem) {
         print("searchNearbyPlaces()")
-        
         browse()
-        
-        /*
-         let pinLocation : CLLocationCoordinate2D = yellowCabLocation
-         let objectAnnotation = MKPointAnnotation()
-         objectAnnotation.coordinate = pinLocation
-         objectAnnotation.title = "Yellow Cab,Hampton Pasig"
-         self.mapView.addAnnotation(objectAnnotation)
-        */
     }
     
     override func viewDidLoad() {
@@ -148,6 +140,7 @@ extension ViewController {
     }
 
     private func browse() {
+        print("browse()")
         if let userLocation = mapView.userLocation.location?.coordinate {
             
             provider.request(Places.browse(lat: userLocation.latitude, lon: userLocation.longitude, radius: PlacesConstants.searchRadius, category: PlacesConstants.defaultCategory, size: PlacesConstants.maxResultSize)) { [weak self] (result) in
@@ -161,6 +154,8 @@ extension ViewController {
                         let data = moyaResponse.data
                         
                         self.queryJson = try JSON(data: data)
+                        
+                        self.annotateResults()
                         
                         self.state = .ready
                         
@@ -177,6 +172,34 @@ extension ViewController {
         }
     }
 
+    private func annotateResults() {
+        print("\nannotateResults()")
+        
+        guard let json = queryJson else {
+            print("Response data is nil")
+            return
+        }
+        guard json["results"]["items"].exists() else {
+            print("No results from query")
+            return
+        }
+        
+        guard let items = json["results"]["items"].array else {
+            print("Array of results not retrieved")
+            return
+        }
+        
+        print("Total Results: \(items.count)")
+        
+        for item in items {
+            let pinLocation = CLLocationCoordinate2DMake(item["position"][0].double!,item["position"][1].double!)
+            let pin = MKPointAnnotation()
+            pin.coordinate = pinLocation
+            pin.title = item["title"].string ?? ""
+            self.mapView.addAnnotation(pin)
+        }
+    }
+    
 }
 
 extension ViewController: MKMapViewDelegate {
@@ -184,6 +207,26 @@ extension ViewController: MKMapViewDelegate {
         print("mapView(:didupdate:)")
         //mapView.centerCoordinate = userLocation.location!.coordinate
         print(mapView.centerCoordinate)
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let pin = view.annotation else {
+            print("Annotation is missing")
+            return
+        }
+        
+        guard let title: String = pin.title ?? "", title != "" else {
+            print("Annotation lacks a title")
+            return
+        }
+        
+        let utterance = AVSpeechUtterance(string: title)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+        utterance.rate = 0.4
+
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speak(utterance)
+
     }
 }
 
