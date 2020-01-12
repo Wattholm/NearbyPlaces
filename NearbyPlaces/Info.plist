@@ -60,6 +60,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Show your current location and nearby places of interest</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Show your current location and nearby places of interest</string>
 </dict>

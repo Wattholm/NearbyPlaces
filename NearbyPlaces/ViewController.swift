@@ -7,13 +7,17 @@
 //
 
 import UIKit
+import CoreLocation
 import AVFoundation
 import MapKit
 import Moya
 import SwiftyJSON
 
 class ViewController: UIViewController {
-        
+    
+    var locationManager: CLLocationManager?
+    var locationCheckTimer: Timer?
+    var zoomInTimer: Timer?
     let provider: MoyaProvider = MoyaProvider<Places>()
     
     // MARK: - View State
@@ -46,15 +50,7 @@ class ViewController: UIViewController {
     
     // MARK: IB Actions
     @IBAction func zoomIn(_ sender: UIBarButtonItem) {
-        print("zoomIn()")
-
-        if let userLocation = mapView.userLocation.location?.coordinate {
-            
-            let region = MKCoordinateRegion(
-                center: userLocation, latitudinalMeters: PlacesConstants.zoomRadius, longitudinalMeters: PlacesConstants.zoomRadius)
-            
-            mapView.setRegion(region, animated: true)
-        }
+        updateUserLocation()
     }
     
     @IBAction func changeMapType(_ sender: UIBarButtonItem) {
@@ -72,11 +68,23 @@ class ViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        print("viewDidLoad()")
         super.viewDidLoad()
+        
+        locationManager = CLLocationManager()
+        
+        if locationCheckTimer == nil {
+            locationCheckTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(checkLocationAlert), userInfo: nil, repeats: true)
+            locationCheckTimer?.tolerance = 0.2
+        }
+        
                 
-        mapView.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
 
-        mapView.showsUserLocation = true
+        locationManager?.delegate = self
+        locationManager?.requestWhenInUseAuthorization()
+
+        mapView.delegate = self
         
         infoLabel.layer.borderWidth = 2
         infoLabel.layer.borderColor = UIColor.gray.cgColor
@@ -84,7 +92,7 @@ class ViewController: UIViewController {
         infoLabel.adjustsFontSizeToFitWidth = true
 
     }
-        
+    
 }
 
 extension ViewController {
@@ -210,6 +218,41 @@ extension ViewController {
         return infoString
     }
     
+    @objc private func updateUserLocation() {
+        print("updateUserLocation()")
+        if let userLocation = mapView.userLocation.location?.coordinate {
+            let region = MKCoordinateRegion(
+                center: userLocation, latitudinalMeters: PlacesConstants.zoomRadius, longitudinalMeters: PlacesConstants.zoomRadius)
+            mapView.setRegion(region, animated: true)
+            zoomInTimer?.invalidate()
+            zoomInTimer = nil
+        }
+
+    }
+    
+    @objc private func checkLocationAlert() {
+        print("checkLocationAlert()")
+        guard let locationManager = locationManager else {return}
+        guard CLLocationManager.locationServicesEnabled() else {return}
+
+        // if self.navigationController?.visibleViewController is UIAlertController {}
+
+        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+            mapView.showsUserLocation = true
+            locationCheckTimer?.invalidate()
+            locationCheckTimer = nil
+            if zoomInTimer == nil {
+                zoomInTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateUserLocation), userInfo: nil, repeats: true)
+                zoomInTimer?.tolerance = 0.2
+            }
+            print("Location Permissions check has completed.")
+        }
+        
+    }
+    
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         coordinator.animate(alongsideTransition: { [weak self] context in
             guard let self = self else {return}
@@ -219,15 +262,38 @@ extension ViewController {
             self.infoLabel.text = self.getPinInfoString(for: pin, from: items)
         })
     }
+    
+    @objc func willEnterForeground() {
+        checkLocationAlert()
+    }
+
+}
+
+extension ViewController: CLLocationManagerDelegate {
+    
+    /*
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        print("mapView(:didupdate:)")
+        print("Map center: \(mapView.centerCoordinate)")
+    }*/
+
+    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        print("locationManager(didChangeAuthorizationStatus..)")
+        
+        if (status == CLAuthorizationStatus.denied) {
+            print("User has denied access to location services. App will not function properly")
+        } else if (status == CLAuthorizationStatus.authorizedAlways) {
+            print("User has granted permanent location access")
+            mapView.showsUserLocation = true
+        } else if (status == CLAuthorizationStatus.authorizedWhenInUse) {
+            print("User has granted 'when in use' location access")
+            mapView.showsUserLocation = true
+        }
+    }
+
 }
 
 extension ViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        print("mapView(:didupdate:)")
-        //mapView.centerCoordinate = userLocation.location!.coordinate
-        print(mapView.centerCoordinate)
-    }
-    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let items = self.items else {return}
 
@@ -259,14 +325,3 @@ extension ViewController: MKMapViewDelegate {
     }
 }
 
-extension ViewController: CLLocationManagerDelegate {
-    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if (status == CLAuthorizationStatus.denied) {
-            // The user denied authorization
-        } else if (status == CLAuthorizationStatus.authorizedAlways) {
-            // The user accepted authorization
-        } else if (status == CLAuthorizationStatus.authorizedWhenInUse) {
-            
-        }
-    }
-}
