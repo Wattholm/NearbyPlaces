@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B01709DEF916076E4FC771B /* Pods_NearbyPlacesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 764A02CAF3DFC30237C4E1E6 /* Pods_NearbyPlacesTests.framework */; };
 		5E03059023C9D75F00D1775B /* PlacesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03058F23C9D75F00D1775B /* PlacesAPI.swift */; };
+		5E08D1BE23CAB00B004FB98B /* PlacesTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E08D1BD23CAB00B004FB98B /* PlacesTarget.swift */; };
 		5E0AD93A23C99AEF0015E41D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AD93923C99AEF0015E41D /* AppDelegate.swift */; };
 		5E0AD93C23C99AEF0015E41D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AD93B23C99AEF0015E41D /* SceneDelegate.swift */; };
 		5E0AD93E23C99AEF0015E41D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AD93D23C99AEF0015E41D /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 		37DCD0D67C5AECBED6F1C69B /* Pods-NearbyPlacesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlacesTests.release.xcconfig"; path = "Target Support Files/Pods-NearbyPlacesTests/Pods-NearbyPlacesTests.release.xcconfig"; sourceTree = "<group>"; };
 		485C8047F8081A144200D6AA /* Pods-NearbyPlaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlaces.release.xcconfig"; path = "Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces.release.xcconfig"; sourceTree = "<group>"; };
 		5E03058F23C9D75F00D1775B /* PlacesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesAPI.swift; sourceTree = "<group>"; };
+		5E08D1BD23CAB00B004FB98B /* PlacesTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTarget.swift; sourceTree = "<group>"; };
 		5E0AD93623C99AEF0015E41D /* NearbyPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NearbyPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E0AD93923C99AEF0015E41D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E0AD93B23C99AEF0015E41D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				5E03058F23C9D75F00D1775B /* PlacesAPI.swift */,
+				5E08D1BD23CAB00B004FB98B /* PlacesTarget.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				5E0AD93A23C99AEF0015E41D /* AppDelegate.swift in Sources */,
 				5E0AD94423C99AEF0015E41D /* NearbyPlaces.xcdatamodeld in Sources */,
 				5E03059023C9D75F00D1775B /* PlacesAPI.swift in Sources */,
+				5E08D1BE23CAB00B004FB98B /* PlacesTarget.swift in Sources */,
 				5E0AD93C23C99AEF0015E41D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
