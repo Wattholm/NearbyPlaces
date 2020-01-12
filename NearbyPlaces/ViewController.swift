@@ -24,9 +24,22 @@ class ViewController: UIViewController {
     private var state: State = .loading {
       didSet {
         switch state {
-        case .ready: break
-        case .loading: break
-        case .error: break
+        case .ready: // break
+            centerButton.isEnabled = true
+            mapTypeButton.isEnabled = true
+            searchButton.isEnabled = true
+            infoLabel.text = "Information Panel"
+        case .loading: // break
+            centerButton.isEnabled = false
+            mapTypeButton.isEnabled = false
+            searchButton.isEnabled = false
+            infoLabel.text = "Loading . . ."
+        case .error: // break
+            centerButton.isEnabled = true
+            mapTypeButton.isEnabled = true
+            searchButton.isEnabled = true
+            infoLabel.text = "An error occurred."
+            print("Error. Alert user with appropriate UI changes")
         }
       }
     }
@@ -73,13 +86,15 @@ class ViewController: UIViewController {
         print("viewDidLoad()")
         super.viewDidLoad()
         
+        self.state = .loading
+        infoLabel.text = "Loading... Please enable location access to use this app"
+        
         locationManager = CLLocationManager()
         
         if locationCheckTimer == nil {
             locationCheckTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(checkLocationAlert), userInfo: nil, repeats: true)
             locationCheckTimer?.tolerance = 0.2
         }
-        
                 
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
 
@@ -103,7 +118,8 @@ extension ViewController {
     case ready
     case error
   }
-        
+    
+    // Endpoint is currently unused
     private func explore() {
         if let userLocation = mapView.userLocation.location?.coordinate {
             
@@ -136,6 +152,8 @@ extension ViewController {
 
     private func browse() {
         print("browse()")
+        state = .loading
+        
         if let userLocation = mapView.userLocation.location?.coordinate {
             
             let target: Places = .browse(lat: userLocation.latitude, lon: userLocation.longitude, radius: PlacesConstants.searchRadius, category: PlacesConstants.defaultCategory, size: PlacesConstants.maxResultSize)
@@ -228,6 +246,7 @@ extension ViewController {
             mapView.setRegion(region, animated: true)
             zoomInTimer?.invalidate()
             zoomInTimer = nil
+            state = .ready
         }
 
     }

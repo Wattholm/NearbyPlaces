@@ -73,8 +73,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="N0a-ED-DjW"/>
                     <connections>
+                        <outlet property="centerButton" destination="HmV-Ue-pVL" id="HOY-u4-KaW"/>
                         <outlet property="infoLabel" destination="tcg-Tz-2bh" id="zFu-Ic-IwU"/>
+                        <outlet property="mapTypeButton" destination="hoj-7B-0gM" id="EaS-1g-KL1"/>
                         <outlet property="mapView" destination="lYE-Rq-3zA" id="e3i-Oc-Pya"/>
+                        <outlet property="searchButton" destination="bfF-Gm-yjN" id="lLq-eB-xRI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
