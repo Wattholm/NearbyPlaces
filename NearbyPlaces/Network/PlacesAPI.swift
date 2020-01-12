@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import MapKit
+
+let yellowCabLocation = CLLocationCoordinate2DMake(14.577820, 121.085870)
 
 // Sample explore request:
 // Docs: https://developer.here.com/documentation/examples/rest/places/explore-places-bounding-box

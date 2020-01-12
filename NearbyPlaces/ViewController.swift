@@ -11,9 +11,7 @@ import MapKit
 
 
 class ViewController: UIViewController {
-    
-    let yellowCabLocation = CLLocationCoordinate2DMake(14.577820, 121.085870)
-    
+        
     @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func zoomIn(_ sender: UIBarButtonItem) {

@@ -83,12 +83,12 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		5E03059123C9D77600D1775B /* RestAPI */ = {
+		5E03059123C9D77600D1775B /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				5E03058F23C9D75F00D1775B /* PlacesAPI.swift */,
 			);
-			path = RestAPI;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		5E0AD92D23C99AEF0015E41D = {
@@ -118,7 +118,7 @@
 				5E0AD93B23C99AEF0015E41D /* SceneDelegate.swift */,
 				5E0AD93D23C99AEF0015E41D /* ViewController.swift */,
 				5E0AD93F23C99AEF0015E41D /* Main.storyboard */,
-				5E03059123C9D77600D1775B /* RestAPI */,
+				5E03059123C9D77600D1775B /* Network */,
 				5E0AD94523C99AF00015E41D /* Assets.xcassets */,
 				5E0AD94723C99AF00015E41D /* LaunchScreen.storyboard */,
 				5E0AD94A23C99AF00015E41D /* Info.plist */,
