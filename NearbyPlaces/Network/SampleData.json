@@ -1,0 +1,329 @@
+{
+  "results" : {
+    "items" : [
+      {
+        "having" : [
+
+        ],
+        "averageRating" : 0,
+        "type" : "urn:nlp-types:place",
+        "position" : [
+          51.506689999999999,
+          0.12878999999999999
+        ],
+        "vicinity" : "Bayliss Avenue<br\/>Thamesmead<br\/>London<br\/>SE28 8NJ",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/30.icon",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/826u10j4-ec0b380334d744e798e65f500cbf4672;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz0w",
+        "id" : "826u10j4-ec0b380334d744e798e65f500cbf4672",
+        "title" : "Thamesmead Town Football Club",
+        "category" : {
+          "system" : "places",
+          "id" : "sports-facility-venue",
+          "type" : "urn:nlp-types:category",
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/sports-facility-venue",
+          "title" : "Sport Facility\/Venue"
+        },
+        "distance" : 105
+      },
+      {
+        "title" : "Lister Walk (Stop NB)",
+        "having" : [
+
+        ],
+        "distance" : 124,
+        "alternativeNames" : [
+          {
+            "name" : "Lister Walk (Stop NB)",
+            "language" : "en"
+          },
+          {
+            "language" : "en",
+            "name" : "Lister Walk (Stop NH)"
+          }
+        ],
+        "position" : [
+          51.506641000000002,
+          0.12648400000000001
+        ],
+        "vicinity" : "Crossway<br\/>Thamesmead<br\/>London<br\/>SE28 8",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/11.icon",
+        "id" : "826q9wpy-cf3b57c4ba920a620e6475f0d9906100",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/826q9wpy-cf3b57c4ba920a620e6475f0d9906100;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz0x",
+        "averageRating" : 0,
+        "category" : {
+          "system" : "places",
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/public-transport",
+          "type" : "urn:nlp-types:category",
+          "id" : "public-transport",
+          "title" : "Public Transport"
+        },
+        "type" : "urn:nlp-types:place"
+      },
+      {
+        "title" : "Sparking Cleaning Service",
+        "having" : [
+
+        ],
+        "distance" : 166,
+        "openingHours" : {
+          "text" : "Mon-Sun: 00:00 - 24:00",
+          "isOpen" : true,
+          "label" : "Opening hours",
+          "structured" : [
+            {
+              "start" : "T000000",
+              "duration" : "PT24H00M",
+              "recurrence" : "FREQ:DAILY;BYDAY:MO,TU,WE,TH,FR,SA,SU"
+            }
+          ]
+        },
+        "position" : [
+          51.506169999999997,
+          0.12645000000000001
+        ],
+        "vicinity" : "Haldane Road<br\/>Thamesmead<br\/>London<br\/>SE28 8NQ",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/02.icon",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/826u10j4-1bc7f5d6d608480c8e53bd8813b49fac;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz0y",
+        "id" : "826u10j4-1bc7f5d6d608480c8e53bd8813b49fac",
+        "averageRating" : 0,
+        "category" : {
+          "system" : "places",
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/business-services",
+          "type" : "urn:nlp-types:category",
+          "id" : "business-services",
+          "title" : "Business & Services"
+        },
+        "type" : "urn:nlp-types:place"
+      },
+      {
+        "distance" : 169,
+        "averageRating" : 0,
+        "type" : "urn:nlp-types:place",
+        "position" : [
+          51.508879999999998,
+          0.12834999999999999
+        ],
+        "vicinity" : "109 Templar Drive<br\/>Thamesmead<br\/>London<br\/>SE28 8PF",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/25.icon",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/826jx7ps-061d2568927f0f7c5e5855535d885975;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz0z",
+        "id" : "826jx7ps-061d2568927f0f7c5e5855535d885975",
+        "title" : "Rising Stars Daycare",
+        "category" : {
+          "system" : "places",
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/education-facility",
+          "type" : "urn:nlp-types:category",
+          "id" : "education-facility",
+          "title" : "Educational Facility"
+        },
+        "having" : [
+
+        ]
+      },
+      {
+        "distance" : 185,
+        "averageRating" : 0,
+        "type" : "urn:nlp-types:place",
+        "position" : [
+          51.50703,
+          0.12519
+        ],
+        "vicinity" : "22 Curlew Close<br\/>Thamesmead<br\/>London<br\/>SE28 8HT",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/21.icon",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/826d408k-df14d1d27cc604477b5fc19449ca95c4;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz00",
+        "id" : "826d408k-df14d1d27cc604477b5fc19449ca95c4",
+        "title" : "Furry Limousines",
+        "category" : {
+          "system" : "places",
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/tourist-information",
+          "type" : "urn:nlp-types:category",
+          "id" : "tourist-information",
+          "title" : "Tourist Information"
+        },
+        "having" : [
+
+        ]
+      },
+      {
+        "title" : "Awm Accountant",
+        "having" : [
+
+        ],
+        "distance" : 198,
+        "openingHours" : {
+          "text" : "Mon-Sun: 09:00 - 18:00",
+          "isOpen" : true,
+          "label" : "Opening hours",
+          "structured" : [
+            {
+              "start" : "T090000",
+              "duration" : "PT09H00M",
+              "recurrence" : "FREQ:DAILY;BYDAY:MO,TU,WE,TH,FR,SA,SU"
+            }
+          ]
+        },
+        "position" : [
+          51.509140000000002,
+          0.12839
+        ],
+        "vicinity" : "97 Templar Drive<br\/>Thamesmead<br\/>London<br\/>SE28 8PF",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/02.icon",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/826u10j4-e6c3ae71f7e84de8b21de01d6b7daf75;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz01",
+        "id" : "826u10j4-e6c3ae71f7e84de8b21de01d6b7daf75",
+        "averageRating" : 0,
+        "category" : {
+          "system" : "places",
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/business-services",
+          "type" : "urn:nlp-types:category",
+          "id" : "business-services",
+          "title" : "Business & Services"
+        },
+        "type" : "urn:nlp-types:place"
+      },
+      {
+        "title" : "Eastgate Close (Stop NG)",
+        "having" : [
+
+        ],
+        "distance" : 212,
+        "alternativeNames" : [
+          {
+            "language" : "en",
+            "name" : "Eastgate Close (Stop NG)"
+          }
+        ],
+        "position" : [
+          51.508960999999999,
+          0.12603700000000001
+        ],
+        "vicinity" : "Crossway<br\/>Thamesmead<br\/>London<br\/>SE28 8",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/11.icon",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/826q9wpy-ca9be79a46b70f78ab1fbffdbd4954d9;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz02",
+        "id" : "826q9wpy-ca9be79a46b70f78ab1fbffdbd4954d9",
+        "averageRating" : 0,
+        "category" : {
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/public-transport",
+          "system" : "places",
+          "type" : "urn:nlp-types:category",
+          "id" : "public-transport",
+          "title" : "Public Transport"
+        },
+        "type" : "urn:nlp-types:place"
+      },
+      {
+        "title" : "Curlew Close (Stop na)",
+        "having" : [
+
+        ],
+        "distance" : 250,
+        "alternativeNames" : [
+          {
+            "language" : "en",
+            "name" : "Curlew Close (Stop na)"
+          }
+        ],
+        "position" : [
+          51.506537000000002,
+          0.124463
+        ],
+        "vicinity" : "Crossway<br\/>Thamesmead<br\/>London<br\/>SE28 8",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/11.icon",
+        "id" : "826q9wpy-909e4bb958ec0136ac29fb536851a8c8",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/826q9wpy-909e4bb958ec0136ac29fb536851a8c8;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz03",
+        "averageRating" : 0,
+        "category" : {
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/public-transport",
+          "system" : "places",
+          "type" : "urn:nlp-types:category",
+          "id" : "public-transport",
+          "title" : "Public Transport"
+        },
+        "type" : "urn:nlp-types:place"
+      },
+      {
+        "category" : {
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/service",
+          "system" : "places",
+          "type" : "urn:nlp-types:category",
+          "id" : "service",
+          "title" : "Service"
+        },
+        "averageRating" : 0,
+        "type" : "urn:nlp-types:place",
+        "position" : [
+          51.506039999999999,
+          0.12436
+        ],
+        "vicinity" : "Kinder Close<br\/>Thamesmead<br\/>London<br\/>SE28 8HG",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/02.icon",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/8268lxx5-1f101e321f88049c7e5c40a00079cb4d;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz04",
+        "id" : "8268lxx5-1f101e321f88049c7e5c40a00079cb4d",
+        "title" : "Internet Millionaires Secrets",
+        "distance" : 282,
+        "having" : [
+
+        ]
+      },
+      {
+        "title" : "smart Corperation",
+        "having" : [
+
+        ],
+        "distance" : 284,
+        "openingHours" : {
+          "label" : "Opening hours",
+          "structured" : [
+            {
+              "start" : "T090000",
+              "duration" : "PT09H00M",
+              "recurrence" : "FREQ:DAILY;BYDAY:MO,TU,WE,TH,FR,SA"
+            }
+          ],
+          "isOpen" : false,
+          "text" : "Mon-Sat: 09:00 - 18:00"
+        },
+        "position" : [
+          51.505809999999997,
+          0.12458
+        ],
+        "vicinity" : "28 Kinder Close<br\/>Thamesmead<br\/>London<br\/>SE28 8HG",
+        "icon" : "https:\/\/download.vcdn.data.here.com\/p\/d\/places2\/icons\/categories\/02.icon",
+        "id" : "8268lxx5-dc4ac92e74d90e37ac85fd25ce37ee5e",
+        "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/8268lxx5-dc4ac92e74d90e37ac85fd25ce37ee5e;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmcmFuaz05",
+        "averageRating" : 0,
+        "category" : {
+          "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/categories\/places\/business-services",
+          "system" : "places",
+          "type" : "urn:nlp-types:category",
+          "id" : "business-services",
+          "title" : "Business & Services"
+        },
+        "type" : "urn:nlp-types:place"
+      }
+    ],
+    "next" : "https:\/\/places.ls.hereapi.com\/places\/v1\/browse;context=Zmxvdy1pZD1jNWU4YjJkNi1hM2EzLTU0NTEtYjhmMy0wNzNjOWVlYmQ3ODZfMTU3ODgyNzc4NDU5OV80MjQ3XzY2NzAmb2Zmc2V0PTEwJnNpemU9MTA?at=51.5074%2C0.1278"
+  },
+  "search" : {
+    "context" : {
+      "location" : {
+        "address" : {
+          "text" : "4 Fleming Way<br\/>Thamesmead<br\/>London<br\/>SE28 8NR<br\/>United Kingdom",
+          "house" : "4",
+          "postalCode" : "SE28 8NR",
+          "stateCode" : "England",
+          "countryCode" : "GBR",
+          "city" : "London",
+          "county" : "London",
+          "country" : "United Kingdom",
+          "district" : "Thamesmead",
+          "street" : "Fleming Way"
+        },
+        "position" : [
+          51.507399999999997,
+          0.1278
+        ]
+      },
+      "type" : "urn:nlp-types:place",
+      "href" : "https:\/\/places.ls.hereapi.com\/places\/v1\/places\/loc-dmVyc2lvbj0xO3RpdGxlPTQrRmxlbWluZytXYXk7bGF0PTUxLjUwNzQ7bG9uPTAuMTI3ODtzdHJlZXQ9RmxlbWluZytXYXk7aG91c2U9NDtjaXR5PUxvbmRvbjtwb3N0YWxDb2RlPVNFMjgrOE5SO2NvdW50cnk9R0JSO2Rpc3RyaWN0PVRoYW1lc21lYWQ7c3RhdGVDb2RlPUVuZ2xhbmQ7Y291bnR5PUxvbmRvbjtjYXRlZ29yeUlkPWJ1aWxkaW5nO3NvdXJjZVN5c3RlbT1pbnRlcm5hbA;context=c2VhcmNoQ29udGV4dD0x"
+    }
+  }
+}

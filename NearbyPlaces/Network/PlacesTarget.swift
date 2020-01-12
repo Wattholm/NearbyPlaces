@@ -9,6 +9,7 @@
 import Foundation
 import MapKit
 import Moya
+import SwiftyJSON
 
 // Sample /discover/explore request:
 // Docs: https://developer.here.com/documentation/examples/rest/places/explore-places-bounding-box
@@ -49,7 +50,18 @@ extension Places: TargetType {
     }
     
     public var sampleData: Data {
-        return Data()
+        if let path = Bundle.main.path(forResource: "SampleData", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .alwaysMapped)
+                return data
+            } catch {
+                print("Error getting sample data")
+                return Data()
+            }
+        } else {
+            print("Error locating stub file data")
+            return Data()
+        }
     }
     
     public var task: Task {
