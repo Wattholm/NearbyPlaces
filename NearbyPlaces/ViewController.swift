@@ -78,9 +78,10 @@ class ViewController: UIViewController {
 
         mapView.showsUserLocation = true
         
-        infoLabel.layer.borderWidth = 10
+        infoLabel.layer.borderWidth = 2
         infoLabel.layer.borderColor = UIColor.gray.cgColor
-        infoLabel.layer.cornerRadius = 10
+        infoLabel.layer.cornerRadius = 8
+        infoLabel.adjustsFontSizeToFitWidth = true
 
     }
         
@@ -270,16 +271,18 @@ extension ViewController: MKMapViewDelegate {
         
         selectedPin = pin as? MKPointAnnotation
         
-        let infoString = self.getPinInfoString(for: selectedPin!, from: items)
-        
-        infoLabel.text = infoString
-        
-        let utterance = AVSpeechUtterance(string: infoString.replacingOccurrences(of: "\n", with: " is "))
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
-        utterance.rate = 0.4
+        if let myPin = selectedPin {
+            let infoString = self.getPinInfoString(for: myPin, from: items)
+            
+            infoLabel.text = infoString
+            
+            let utterance = AVSpeechUtterance(string: infoString.replacingOccurrences(of: "\n", with: " is "))
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
+            utterance.rate = 0.4
 
-        let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speak(utterance)
+            let synthesizer = AVSpeechSynthesizer()
+            synthesizer.speak(utterance)
+        }
 
     }
 }

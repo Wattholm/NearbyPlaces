@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="q8c-73-iIM">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -13,15 +13,16 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NearbyPlaces" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lYE-Rq-3zA">
-                                <rect key="frame" x="20" y="238" width="374" height="560"/>
+                                <rect key="frame" x="20" y="194" width="335" height="409"/>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOf-9N-wPC">
-                                <rect key="frame" x="20" y="798" width="374" height="44"/>
+                                <rect key="frame" x="20" y="603" width="335" height="44"/>
                                 <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="foG-ME-uf1"/>
                                     <barButtonItem title="Center" id="HmV-Ue-pVL">
                                         <connections>
                                             <action selector="zoomIn:" destination="BYZ-38-t0r" id="EUF-cL-8l8"/>
@@ -37,10 +38,11 @@
                                             <action selector="searchNearbyPlaces:" destination="BYZ-38-t0r" id="ufR-ej-iOo"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XJ1-2i-tca"/>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information Panel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcg-Tz-2bh">
-                                <rect key="frame" x="20" y="108" width="374" height="120"/>
+                                <rect key="frame" x="20" y="64" width="335" height="120"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -49,8 +51,12 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="tcg-Tz-2bh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="94b-4H-Yom"/>
-                            <constraint firstItem="lYE-Rq-3zA" firstAttribute="top" secondItem="tcg-Tz-2bh" secondAttribute="bottom" constant="10" id="GTL-Za-AAx"/>
+                            <constraint firstItem="tcg-Tz-2bh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="94b-4H-Yom">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="lYE-Rq-3zA" firstAttribute="top" secondItem="tcg-Tz-2bh" secondAttribute="bottom" constant="10" id="GTL-Za-AAx">
+                                <variation key="heightClass=compact" constant="8"/>
+                            </constraint>
                             <constraint firstItem="lYE-Rq-3zA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="IxG-mL-fsR">
                                 <variation key="heightClass=compact" constant="50"/>
                             </constraint>
@@ -81,7 +87,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q8c-73-iIM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SPi-Lg-IPg">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
