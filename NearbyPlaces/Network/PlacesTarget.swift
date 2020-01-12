@@ -12,14 +12,19 @@ import Moya
 
 let yellowCabLocation = CLLocationCoordinate2DMake(14.577820, 121.085870)
 
-// Sample explore request:
+// Sample /discover/explore request:
 // Docs: https://developer.here.com/documentation/examples/rest/places/explore-places-bounding-box
 // https://places.ls.hereapi.com/places/v1/discover/explore?in=14.549492597593515%2C121.09929026115793%3Br%3D1000&size=10&apiKey=H6XyiCT0w1t9GgTjqhRXxDMrVj9h78ya3NuxlwM7XUs
 
+// Sample /browse:
+// returns results in order of proximity
+// https://places.ls.hereapi.com/places/v1/browse?in=14.549534985687469%2C121.09939593737253&apiKey=H6XyiCT0w1t9GgTjqhRXxDMrVj9h78ya3NuxlwM7XUs
+
 public enum Places {
-    static private let apiKey = "H6XyiCT0w1t9GgTjqhRXxDMrVj9h78ya3NuxlwM7XUs"
-    
-    case explore(lat: Double, lon: Double, radius: Int, size: Int)
+    static private let apiKey = "a0RqYTI1MFRHdnlUUW9HdnFsTnVWREh5Yy12QlpwaENjakhfd2pUVGRWZw==".simpleDecrypt()!
+
+    case explore(lat: Double, lon: Double, radius: Int, category: String?, size: Int)
+    case browse(lat: Double, lon: Double, radius: Int, category: String?, size: Int)
 }
 
 extension Places: TargetType {
@@ -32,6 +37,8 @@ extension Places: TargetType {
         switch self {
         case .explore:
             return "/discover/explore"
+        case .browse:
+            return "/browse"
         }
         
     }
@@ -39,6 +46,7 @@ extension Places: TargetType {
     public var method: Moya.Method {
         switch self {
         case .explore: return .get
+        case .browse: return .get
         }
     }
     
@@ -48,14 +56,46 @@ extension Places: TargetType {
     
     public var task: Task {
         switch self {
-        case .explore(let lat, let lon, let radius, let size):
-            return .requestParameters(
-                parameters: [
-                    "in": "\(lat)%2C\(lon)%3Br%3D\(radius)",
-                    "apikey": Places.apiKey,
-                    "size": size
-                ],
-                encoding: URLEncoding.default)
+        case .explore(let lat, let lon, let radius, let category, let size):
+            
+            if let cat = category {
+                return .requestParameters(
+                    parameters: [
+                        "in": "\(lat),\(lon);r=\(radius)",
+                        "cat": cat,
+                        "size": size,
+                        "apikey": Places.apiKey
+                    ],
+                    encoding: URLEncoding.default)
+            } else {
+                return .requestParameters(
+                    parameters: [
+                        "in": "\(lat),\(lon);r=\(radius)",
+                        "size": size,
+                        "apikey": Places.apiKey
+                    ],
+                    encoding: URLEncoding.default)
+            }
+        case .browse(let lat, let lon, let radius, let category, let size):
+            
+            if let cat = category {
+                return .requestParameters(
+                    parameters: [
+                        "at": "\(lat),\(lon);r=\(radius)",
+                        "cat": cat,
+                        "size": size,
+                        "apikey": Places.apiKey
+                    ],
+                    encoding: URLEncoding.default)
+            } else {
+                return .requestParameters(
+                    parameters: [
+                        "at": "\(lat),\(lon);r=\(radius)",
+                        "size": size,
+                        "apikey": Places.apiKey
+                    ],
+                    encoding: URLEncoding.default)
+            }
         }
     }
     

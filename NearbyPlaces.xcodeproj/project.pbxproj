@@ -18,6 +18,7 @@
 		5E0AD94623C99AF00015E41D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0AD94523C99AF00015E41D /* Assets.xcassets */; };
 		5E0AD94923C99AF00015E41D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0AD94723C99AF00015E41D /* LaunchScreen.storyboard */; };
 		5E0AD95423C99AF10015E41D /* NearbyPlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0AD95323C99AF10015E41D /* NearbyPlacesTests.swift */; };
+		5E98DE7123CAE236001E740F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E98DE7023CAE236001E740F /* StringExtensions.swift */; };
 		C6C3261587DC12335DA00455 /* Pods_NearbyPlaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E310D31CAD974B427DAE5F7 /* Pods_NearbyPlaces.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		5E0AD95523C99AF10015E41D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E310D31CAD974B427DAE5F7 /* Pods_NearbyPlaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPlaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E5BE2EF33F6605427EF0A6A /* Pods-NearbyPlaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlaces.debug.xcconfig"; path = "Target Support Files/Pods-NearbyPlaces/Pods-NearbyPlaces.debug.xcconfig"; sourceTree = "<group>"; };
+		5E98DE7023CAE236001E740F /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		764A02CAF3DFC30237C4E1E6 /* Pods_NearbyPlacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NearbyPlacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A362C9CD059E3F459924F04E /* Pods-NearbyPlacesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NearbyPlacesTests.debug.xcconfig"; path = "Target Support Files/Pods-NearbyPlacesTests/Pods-NearbyPlacesTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,11 +123,12 @@
 				5E0AD93B23C99AEF0015E41D /* SceneDelegate.swift */,
 				5E0AD93D23C99AEF0015E41D /* ViewController.swift */,
 				5E0AD93F23C99AEF0015E41D /* Main.storyboard */,
-				5E03059123C9D77600D1775B /* Network */,
 				5E0AD94523C99AF00015E41D /* Assets.xcassets */,
 				5E0AD94723C99AF00015E41D /* LaunchScreen.storyboard */,
 				5E0AD94A23C99AF00015E41D /* Info.plist */,
 				5E0AD94223C99AEF0015E41D /* NearbyPlaces.xcdatamodeld */,
+				5E03059123C9D77600D1775B /* Network */,
+				5E98DE6F23CAE1E3001E740F /* Helper */,
 			);
 			path = NearbyPlaces;
 			sourceTree = "<group>";
@@ -137,6 +140,14 @@
 				5E0AD95523C99AF10015E41D /* Info.plist */,
 			);
 			path = NearbyPlacesTests;
+			sourceTree = "<group>";
+		};
+		5E98DE6F23CAE1E3001E740F /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5E98DE7023CAE236001E740F /* StringExtensions.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		F607FD8C00B5CE113E27FA56 /* Frameworks */ = {
@@ -337,6 +348,7 @@
 				5E0AD93E23C99AEF0015E41D /* ViewController.swift in Sources */,
 				5E0AD93A23C99AEF0015E41D /* AppDelegate.swift in Sources */,
 				5E0AD94423C99AEF0015E41D /* NearbyPlaces.xcdatamodeld in Sources */,
+				5E98DE7123CAE236001E740F /* StringExtensions.swift in Sources */,
 				5E03059023C9D75F00D1775B /* PlacesAPI.swift in Sources */,
 				5E08D1BE23CAB00B004FB98B /* PlacesTarget.swift in Sources */,
 				5E0AD93C23C99AEF0015E41D /* SceneDelegate.swift in Sources */,

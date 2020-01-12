@@ -22,17 +22,17 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOf-9N-wPC">
                                 <rect key="frame" x="20" y="798" width="374" height="44"/>
                                 <items>
-                                    <barButtonItem title="Zoom" id="HmV-Ue-pVL">
+                                    <barButtonItem title="Center" id="HmV-Ue-pVL">
                                         <connections>
                                             <action selector="zoomIn:" destination="BYZ-38-t0r" id="EUF-cL-8l8"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Type" id="hoj-7B-0gM">
+                                    <barButtonItem title="Map Type" id="hoj-7B-0gM">
                                         <connections>
                                             <action selector="changeMapType:" destination="BYZ-38-t0r" id="4uv-4Q-MUt"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Search" id="bfF-Gm-yjN">
+                                    <barButtonItem title="Search Places" id="bfF-Gm-yjN">
                                         <connections>
                                             <action selector="searchNearbyPlaces:" destination="BYZ-38-t0r" id="ufR-ej-iOo"/>
                                         </connections>
