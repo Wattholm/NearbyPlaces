@@ -9,7 +9,10 @@
 import UIKit
 import MapKit
 
+
 class ViewController: UIViewController {
+    
+    let yellowCabLocation = CLLocationCoordinate2DMake(14.577820, 121.085870)
     
     @IBOutlet weak var mapView: MKMapView!
     
@@ -30,6 +33,16 @@ class ViewController: UIViewController {
             mapView.mapType = MKMapType.standard
         }
     }
+    
+    @IBAction func searchNearbyPlaces(_ sender: UIBarButtonItem) {
+
+         let pinLocation : CLLocationCoordinate2D = yellowCabLocation
+         let objectAnnotation = MKPointAnnotation()
+         objectAnnotation.coordinate = pinLocation
+         objectAnnotation.title = "Yellow Cab,Hampton Pasig"
+         self.mapView.addAnnotation(objectAnnotation)
+    }
+    
     
     
     override func viewDidLoad() {
@@ -74,6 +87,7 @@ class ViewController: UIViewController {
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         print("mapView(:didupdate:)")
-        mapView.centerCoordinate = userLocation.location!.coordinate
+        //mapView.centerCoordinate = userLocation.location!.coordinate
+        print(mapView.centerCoordinate)
     }
 }

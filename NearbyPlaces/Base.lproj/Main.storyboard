@@ -32,6 +32,11 @@
                                             <action selector="changeMapType:" destination="BYZ-38-t0r" id="4uv-4Q-MUt"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Search" id="bfF-Gm-yjN">
+                                        <connections>
+                                            <action selector="searchNearbyPlaces:" destination="BYZ-38-t0r" id="ufR-ej-iOo"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

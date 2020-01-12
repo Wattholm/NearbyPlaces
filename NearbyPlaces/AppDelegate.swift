@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import MapKit
 import CoreData
+import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
