@@ -46,7 +46,9 @@ class ViewController: UIViewController {
     // MARK: IB Outlets
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var infoLabel: UILabel!
-    
+    @IBOutlet weak var centerButton: UIBarButtonItem!
+    @IBOutlet weak var mapTypeButton: UIBarButtonItem!
+    @IBOutlet weak var searchButton: UIBarButtonItem!
     
     // MARK: IB Actions
     @IBAction func zoomIn(_ sender: UIBarButtonItem) {
@@ -239,7 +241,7 @@ extension ViewController {
 
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             mapView.showsUserLocation = true
             locationCheckTimer?.invalidate()
