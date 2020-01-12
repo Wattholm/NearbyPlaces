@@ -34,8 +34,17 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var mapView: MKMapView!
+    // Places JSON Array
+    private var items: [JSON]?
     
+    private var selectedPin: MKPointAnnotation?
+    
+    // MARK: IB Outlets
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var infoLabel: UILabel!
+    
+    
+    // MARK: IB Actions
     @IBAction func zoomIn(_ sender: UIBarButtonItem) {
         print("zoomIn()")
 
@@ -68,6 +77,11 @@ class ViewController: UIViewController {
         mapView.delegate = self
 
         mapView.showsUserLocation = true
+        
+        infoLabel.layer.borderWidth = 10
+        infoLabel.layer.borderColor = UIColor.gray.cgColor
+        infoLabel.layer.cornerRadius = 10
+
     }
         
     /*
@@ -189,6 +203,8 @@ extension ViewController {
             return
         }
         
+        self.items = items
+        
         print("Total Results: \(items.count)")
         
         for item in items {
@@ -200,6 +216,36 @@ extension ViewController {
         }
     }
     
+    private func getPinInfoString(for pin: MKPointAnnotation, from items: [JSON]) -> String {
+        guard let title = pin.title else {return ""}
+        var distance: Int = 0
+        var infoString: String
+        
+        // Find the element in the places array that matches the point annotation
+        for item in items {
+            if pin.coordinate.latitude == item["position"][0].double! && pin.coordinate.longitude == item["position"][1].double! {
+                distance = item["distance"].int!
+            }
+        }
+                
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            infoString = "\(title) is \(distance)m away"
+        } else {
+            infoString = "\(title)\n\(distance)m away"
+        }
+
+        return infoString
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: { [weak self] context in
+            guard let self = self else {return}
+            guard let items = self.items else {return}
+            guard let pin = self.selectedPin else {return}
+            
+            self.infoLabel.text = self.getPinInfoString(for: pin, from: items)
+        })
+    }
 }
 
 extension ViewController: MKMapViewDelegate {
@@ -210,6 +256,8 @@ extension ViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let items = self.items else {return}
+
         guard let pin = view.annotation else {
             print("Annotation is missing")
             return
@@ -220,7 +268,13 @@ extension ViewController: MKMapViewDelegate {
             return
         }
         
-        let utterance = AVSpeechUtterance(string: title)
+        selectedPin = pin as? MKPointAnnotation
+        
+        let infoString = self.getPinInfoString(for: selectedPin!, from: items)
+        
+        infoLabel.text = infoString
+        
+        let utterance = AVSpeechUtterance(string: infoString.replacingOccurrences(of: "\n", with: " is "))
         utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         utterance.rate = 0.4
 

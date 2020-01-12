@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lYE-Rq-3zA">
-                                <rect key="frame" x="20" y="188" width="374" height="610"/>
+                                <rect key="frame" x="20" y="238" width="374" height="560"/>
                             </mapView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sOf-9N-wPC">
                                 <rect key="frame" x="20" y="798" width="374" height="44"/>
@@ -39,21 +39,35 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information Panel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcg-Tz-2bh">
+                                <rect key="frame" x="20" y="108" width="374" height="120"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="lYE-Rq-3zA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="IxG-mL-fsR"/>
+                            <constraint firstItem="tcg-Tz-2bh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="94b-4H-Yom"/>
+                            <constraint firstItem="lYE-Rq-3zA" firstAttribute="top" secondItem="tcg-Tz-2bh" secondAttribute="bottom" constant="10" id="GTL-Za-AAx"/>
+                            <constraint firstItem="lYE-Rq-3zA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="IxG-mL-fsR">
+                                <variation key="heightClass=compact" constant="50"/>
+                            </constraint>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sOf-9N-wPC" secondAttribute="trailing" constant="20" id="Oj4-lA-iKJ"/>
                             <constraint firstItem="sOf-9N-wPC" firstAttribute="top" secondItem="lYE-Rq-3zA" secondAttribute="bottom" id="RVh-IS-0o2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="sOf-9N-wPC" secondAttribute="bottom" constant="20" id="UTq-E2-h5s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lYE-Rq-3zA" secondAttribute="trailing" constant="20" id="b0g-1b-M04"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tcg-Tz-2bh" secondAttribute="trailing" constant="20" id="eYf-R8-7lJ"/>
                             <constraint firstItem="lYE-Rq-3zA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hIG-Vx-0HZ"/>
                             <constraint firstItem="sOf-9N-wPC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jJO-Sl-sch"/>
+                            <constraint firstItem="tcg-Tz-2bh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="yff-a5-jUc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="N0a-ED-DjW"/>
                     <connections>
+                        <outlet property="infoLabel" destination="tcg-Tz-2bh" id="zFu-Ic-IwU"/>
                         <outlet property="mapView" destination="lYE-Rq-3zA" id="e3i-Oc-Pya"/>
                     </connections>
                 </viewController>
